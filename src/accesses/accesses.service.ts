@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
 import { ConfigService } from '@nestjs/config';
+import { AccessRequest } from '../dto/accessRequest.model';
 
 @Injectable()
 export class AccessesService {
@@ -17,9 +18,9 @@ export class AccessesService {
     this.token = this.configService.get<string>('TOKEN');
   }
 
-  async getAllCurrentAccesses(): Promise<any[]> {
+  async getAllCurrentAccesses(): Promise<AccessRequest[]> {
     const { data } = await firstValueFrom(
-      this.httpService.get<any[]>(
+      this.httpService.get<AccessRequest[]>(
         `${this.apiUrl}/customers/v2/api/accesses?current=true`,
         {
           headers: {

@@ -1,8 +1,17 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
+import { AccessesService } from './accesses/accesses.service';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  private readonly logger = new Logger(AccessesService.name);
+
+  constructor(
+    private readonly accessService: AccessesService,
+  ) {
+  }
+
+  async getCurrentAccesses() {
+    this.logger.log('Calling getCurrentAccesses');
+    return this.accessService.getAllCurrentAccesses();
   }
 }

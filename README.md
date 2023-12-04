@@ -2,9 +2,23 @@
 
 ## Description
 
-This repo is an example project to show how to access security pass events
+This repository is an example project to show how to access security pass events (using the NestJs framework).
+
+The `app.service.ts` file contains the main logic of this application
+(2 CRONs, one to get all current access requests and another one to get the associated events).
+
+The `accesses.service.ts` file contains a function to get all current accesses.
+
+The `events.service.ts` file contains a function to get the events and a function to process the events.
 
 ## Installation
+
+Use node 20 and create a `.env` file containing the following:
+
+```properties
+API_URL=
+TOKEN=
+```
 
 ```bash
 $ npm install
@@ -16,11 +30,8 @@ $ npm install
 # development
 $ npm run start
 
-# watch mode
+# development watch mode
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
 ## Test
@@ -28,9 +39,6 @@ $ npm run start:prod
 ```bash
 # unit tests
 $ npm run test
-
-# e2e tests
-$ npm run test:e2e
 
 # test coverage
 $ npm run test:cov

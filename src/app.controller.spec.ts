@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { HttpModule } from '@nestjs/axios';
 import { AccessesService } from './accesses/accesses.service';
+import { EventsService } from './events/events.service';
 
 describe(AppController.name, () => {
   let appController: AppController;
@@ -21,6 +22,7 @@ describe(AppController.name, () => {
       providers: [
         AccessesService,
         AppService,
+        EventsService,
       ],
     }).compile();
 
@@ -29,7 +31,7 @@ describe(AppController.name, () => {
 
   describe('root', () => {
     it('should return', () => {
-      expect(appController.getCurrentAccesses()).resolves.toBeDefined();
+      expect(appController.getCurrentAccesses()).resolves.toBeUndefined();
     });
   });
 });

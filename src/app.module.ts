@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { AccessesModule } from './accesses/accesses.module';
 import { ConfigModule } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
+import { EventsModule } from './events/events.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     }),
     AccessesModule,
     ScheduleModule.forRoot(),
+    EventsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
